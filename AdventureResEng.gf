@@ -71,5 +71,4 @@ oper
     Agr Sg => PresSg3 ;
     Agr Pl => Inf
     } ;
-
 }
