@@ -60,6 +60,7 @@ abstract Adventure = {
         she_Pron  : Pron ;
         they_Pron : Pron ;
         it_Pron : Pron ;
+        you_Pron : Pron ;
 
     fun
         already_Adv : Adv ;
@@ -76,6 +77,7 @@ abstract Adventure = {
         black_A : A ;
         blood_N : N ;
         blue_A : A ;
+        bluewhale_N : N ;
         boat_N : N ;
         book_N : N ;
         boy_N : N ;
@@ -97,11 +99,13 @@ abstract Adventure = {
         computer_N : N ;
         cow_N : N ;
         delicious_A : A ;
+        die_V : V ;
         dirty_A : A ;
         dog_N : N ;
         drink_V2 : V2 ;
         eat_V2 : V2 ;
         egg_N : N ;
+        elephantseal_N : N ;
         emperorpenguin_N : N ;
         fat_A : A ;
         find_V2 : V2 ;
@@ -125,9 +129,11 @@ abstract Adventure = {
         iceberg_N : N ;
         jump_V : V ;
         kill_V2 : V2 ;
+        kingpenguin_N : N ;
         --know_VS : VS ;
         lake_N : N ;
         language_N : N ;
+        leopardseal_N : N ;
         live_V : V ;
         love_V2 : V2 ;
         man_N : N ;
@@ -138,6 +144,7 @@ abstract Adventure = {
         now_Adv : Adv ;
         ocean_N : N ;
         old_A : A ;
+        orca_N : N ;
         penguin_N : N ;
         play_V : V ;
         read_V2 : V2 ;
@@ -165,6 +172,7 @@ abstract Adventure = {
         walk_V : V ;
         warm_A : A ;
         water_N : N ;
+        whale_N : N ;
         white_A : A ;
         wine_N : N ;
         woman_N : N ;
