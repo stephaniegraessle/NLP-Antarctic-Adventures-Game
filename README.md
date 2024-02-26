@@ -47,12 +47,13 @@ Penguin needs:
 
 ## Installation (Linux)
 
-Note: If your machine is not Linux, install and use [Windows Subsystem for Linux]().
+Note: If your machine is not Linux, install and use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 1. Clone repository.
-2. Install GF.
-3. Install Python.
-4. Install PGF.
-5. Run program.
+2. Download and [Grammatical Framework](https://www.grammaticalframework.org/download/index-3.11.html).
+3. Run updates with `sudo apt update && upgrade`.
+4. Install Python with `sudo apt install python3 python3-pip ipython3 `.
+5. Install PGF with `pip install pgf`.
+6. Run program with `python3 Adventure.py`.
 
 ## Change log
