@@ -15,6 +15,9 @@ Note: If your machine is not Linux, install and use [Windows Subsystem for Linux
 
 ## Change log
 
+## Known Issues
+- Grammar does not parse or generete sentences in past tense, only present tense
+
 ## Proposal
 
 This is a basic adventure exploration chat system game created using GF and Python. In the game, the user is a penguin exploring around the Antactic. The penguin can complete different actions such as swimming in lakes or eating, and move around to different places. To incorporate the use of a data structure, I will use a list to have an "inventory" within which the penguin can pick up store a limited number of items such as fish or pebbles. Another list will also contain the different places the penguin can visit. The penguin will become hungry every certain number of turns, and will need to consume fish from the inventory to keep playing.
