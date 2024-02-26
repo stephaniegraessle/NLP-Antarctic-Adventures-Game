@@ -59,8 +59,9 @@ abstract Adventure = {
         he_Pron   : Pron ;
         she_Pron  : Pron ;
         they_Pron : Pron ;
-        it_Pron : Pron ;
-        you_Pron : Pron ;
+        it_Pron   : Pron ;
+        you_Pron  : Pron ;
+        that_Pron : Pron ;
 
     fun
         already_Adv : Adv ;
@@ -127,6 +128,8 @@ abstract Adventure = {
         human_N : N ;
         hungry_A : A ;
         iceberg_N : N ;
+        input_N : N ;
+        invalid_A : A ;
         jump_V : V ;
         kill_V2 : V2 ;
         kingpenguin_N : N ;

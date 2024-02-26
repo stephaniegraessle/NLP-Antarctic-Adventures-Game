@@ -91,6 +91,10 @@ concrete AdventureEng of Adventure = open AdventureResEng, Prelude in {
         s = table {Nom => "you" ; Acc => "you"} ;
         a = Agr Pl ;
     } ;
+    that_Pron = {
+        s = table {Nom => "that" ; Acc => "them"} ;
+        a = Agr Sg ;
+    } ;
 
 -----------------------------------------------------
 ---------------- Lexicon part -----------------------
@@ -160,6 +164,8 @@ lin house_N = mkN "house" ;
 lin human_N = mkN "human" ;
 lin hungry_A = mkA "hungry" ;
 lin iceberg_N = mkN "iceberg" ;
+lin input_N = mkN "input" ;
+lin invalid_A = mkA "invalid" ;
 -- lin john_PN = mkPN "John" ;
 lin jump_V = mkV "jump" ;
 lin kill_V2 = mkV2 "kill" ;
