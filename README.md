@@ -2,6 +2,19 @@
 
 Utilizes GF and Python to create a adventure exploration game incorporating natural language processing.
 
+## Installation (Linux)
+
+Note: If your machine is not Linux, install and use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install).
+
+1. Clone repository.
+2. Download and [Grammatical Framework](https://www.grammaticalframework.org/download/index-3.11.html).
+3. Run updates with `sudo apt update && upgrade`.
+4. Install Python with `sudo apt install python3 python3-pip ipython3 `.
+5. Install PGF with `pip install pgf`.
+6. Run program with `python3 Adventure.py`.
+
+## Change log
+
 ## Proposal
 
 This is a basic adventure exploration chat system game created using GF and Python. In the game, the user is a penguin exploring around the Antactic. The penguin can complete different actions such as swimming in lakes or eating, and move around to different places. To incorporate the use of a data structure, I will use a list to have an "inventory" within which the penguin can pick up store a limited number of items such as fish or pebbles. Another list will also contain the different places the penguin can visit. The penguin will become hungry every certain number of turns, and will need to consume fish from the inventory to keep playing.
@@ -44,16 +57,6 @@ I may potentially add some of the following features if I have enough time or ab
 - A data structure holding coordinates of places where the penguin has been to before, creating a "map" of the generated world to remember where they have been before.
 
 Penguin needs:
-
-## Installation (Linux)
-
-Note: If your machine is not Linux, install and use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install).
-
-1. Clone repository.
-2. Download and [Grammatical Framework](https://www.grammaticalframework.org/download/index-3.11.html).
-3. Run updates with `sudo apt update && upgrade`.
-4. Install Python with `sudo apt install python3 python3-pip ipython3 `.
-5. Install PGF with `pip install pgf`.
-6. Run program with `python3 Adventure.py`.
-
-## Change log
+- Hunger
+- Energy
+- HP
