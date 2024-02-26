@@ -79,9 +79,9 @@ abstract Adventure = {
         boat_N : N ;
         book_N : N ;
         boy_N : N ;
-        building_N : N ;
         bread_N : N ;
         break_V2 : V2 ;
+        building_N : N ;
         buy_V2 : V2 ;
         car_N : N ;
         cat_N : N ;
@@ -102,13 +102,16 @@ abstract Adventure = {
         drink_V2 : V2 ;
         eat_V2 : V2 ;
         egg_N : N ;
+        emperorpenguin_N : N ;
         fat_A : A ;
         find_V2 : V2 ;
         fire_N : N ;
         fish_N : N ;
         flower_N : N ;
         friend_N : N ;
+        full_A : A ;
         girl_N : N ;
+        glacier_N : N ;
         good_A : A ;
         go_V : V ;
         grammar_N : N ;
@@ -119,6 +122,7 @@ abstract Adventure = {
         house_N : N ;
         human_N : N ;
         hungry_A : A ;
+        iceberg_N : N ;
         jump_V : V ;
         kill_V2 : V2 ;
         --know_VS : VS ;
