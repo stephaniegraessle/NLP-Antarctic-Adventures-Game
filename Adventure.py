@@ -21,26 +21,4 @@ def main():
         except:
             exit()
 
-    #     while not success:
-    #         try:
-    #             sent = input("Enter sentence: ")
-
-    #             sent = process.preprocess(sent)
-
-    #             if sent == 'quit':
-    #                 quit = True
-    #                 break
-
-    #             i = lang.parse(sent)
-    #             p,e = i.__next__() # get iterator, function and arguments from parse
-
-    #             func, args = e.unpack()
-
-    #             process.test(func,args)
-
-    #             success = True
-    #             continue
-    #         except:
-    #             process.invalid(lang)
-
 main()
