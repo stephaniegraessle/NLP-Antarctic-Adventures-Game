@@ -1,4 +1,4 @@
-# NLP-Antartic-adventure-game
+# NLP-Antarctic-Adventures-Game
 
 Utilizes GF and Python to create a adventure exploration game incorporating natural language processing.
 
