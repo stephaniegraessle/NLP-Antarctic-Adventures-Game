@@ -39,7 +39,7 @@ def test(func, args):
     print("\tArgs[0]:", args[0])
     print("\tArgs[1]:", args[1])
 
-def getinput(lang):
+def get_input(lang):
     success = False
     while not success:
         try:
