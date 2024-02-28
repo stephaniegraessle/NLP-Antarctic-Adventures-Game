@@ -1,8 +1,13 @@
+# NLP processing
 import os
 import pgf
-import event
-import helper
 import process
+
+# location events
+import lake
+
+# other assisting
+import helper
 import time
 
 inventory = [None] * 10 # create empty inventory of 10 items
@@ -14,10 +19,11 @@ def main():
     
     quit = False
     success = False
+    loc = [0,0] # starting location
 
     while not quit:
         try:
-            args = process.getinput(lang)
+            args = process.get_input(lang)
         except:
             exit()
 
