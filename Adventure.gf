@@ -12,20 +12,25 @@ abstract Adventure = {
         V ;                 -- one-place verb
         V2 ;                -- two-place verb
 
-
     fun
         -- navigation
+        QInq : Q -> S; -- "where am I"
         AtLoc : Loc -> Det -> S ; -- "you are at a lake"
-        GoToLoc : V -> Loc -> S ; -- "[go/walk/travel/slide/swim/waddle, etc.] to [Loc]"
-        WhatHaveInq : Q -> V2 -> S ; -- "what do I have"
-        WhatInInv : Q -> Feat -> S ; -- "what is in my inventory"
-        WhereInq : Q -> A ; -- "where am I"
-
-        -- commands
+        TravToLoc : V -> Loc -> S ; -- "[go/walk/travel/slide/swim/waddle, etc.] to [Loc]"
+        V2DirComm : V2 -> Dir -> S ; -- command e.g., "go north"
+        
+        -- inventory management
+        WhatHaveInq : Q -> V -> S ; -- "what do I have"
+        WhatInDetInv : Q -> Det -> Feat -> S ; -- "what is in my inventory"
+        
+        -- general commands
         VComm : V -> S ;                        -- command e.g., "sleep"
-        V2DirComm : V2 -> Dir -> S ;            -- command e.g., "go north"
-        V2FeatComm : V2 -> Feat -> S ;          -- command e.g., "eat fish"
-        v2DetComm : V2 -> Det -> Feat -> S ;    -- command e.g., "eat a fish"
+        V2DetComm : V2 -> Det -> Feat -> S ;    -- command e.g., "eat a fish"
+
+
+        -- figure out how to work with diff. verb conj. based on subj. and plural nouns
+
+        missingdet_Det : Det ;
 
         a_Det : Det ;
         baby_A : A ;                -- e.g., "baby penguin"
@@ -40,7 +45,7 @@ abstract Adventure = {
         building_Feat : Feat ;
         clean_A : A ;
         clever_A : A ;
-        cloud_Scen : Scen ;
+        clouds_Scen : Scen ;
         cold_A : A ;
         consume_V : V ;
         consume_V2 : V2 ;
@@ -50,6 +55,7 @@ abstract Adventure = {
         dirty_A : A ;
         drink_V : V ;
         drink_V2 : V2 ;
+        east_Dir : Dir ;
         eat_V : V ;
         eat_V2 : V2 ;
         egg_Feat : Feat ;
@@ -60,13 +66,16 @@ abstract Adventure = {
         fire_Feat : Feat ;
         female_A : A ;
         fish_Feat : Feat ;
+        fish_V : V ;
         friend_Anim : Anim ;
+        friendly_A : A ;
         full_A : A ;
         glacier_Loc : Loc ;
         good_A : A ;
         go_V : V ;
+        go_V2 : V2 ;
         green_A : A ;
-        have_V2 : V2 ;
+        have_V : V ;
         have_V2 : V2 ;
         health_Feat : Feat ;
         heavy_A : A ;
@@ -84,7 +93,9 @@ abstract Adventure = {
         male_A : A ;
         meet_V2 : V2 ;
         mountain_Loc : Loc ;
+        my_Det : Det ;
         new_A : A ;
+        north_Dir : Dir ;
         ocean_Loc : Loc ;               -- synonym for "sea"
         old_A : A ;
         orange_A : A ;
@@ -108,6 +119,7 @@ abstract Adventure = {
         small_A : A ;
         snow_Feat : Feat ;
         snow_Scen : Scen ;
+        south_Dir : Dir ;
         stars_Scen : Scen ;
         sunset_Scen : Scen ;
         swim_V : V ;
@@ -116,12 +128,13 @@ abstract Adventure = {
         the_Det : Det ;
         this_Det : Det ;
         travel_V : V ;
-        understand_V2 : V2;
+        understand_V2 : V2 ;
         waddle_V : V ;
         wait_V : V ;
         walk_V : V ;
         warm_A : A ;
         water_Feat : Feat ;
+        west_Dir : Dir ;
         whale_Anim : Anim ;
         what_Q : Q ;
         when_Q : Q ;
