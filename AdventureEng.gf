@@ -14,7 +14,7 @@ concrete AdventureEng of Adventure = {
 
     lin
         -- navigation
-        QInq q = {s = q.s ++ "am I"}; -- "where am I", "who am I"
+        QInq q = {s = q.s ++ "am i"} ; -- "where am I", "who am I"
         AtLoc loc det = {s = "you are at" ++ det.s ++ loc.s} ; -- "you are at a lake"
         TravToLoc v loc = {s = v.s ++ "to" ++ loc.s} ; -- "[go/walk/travel/slide/swim/waddle, etc.] to [Loc]"
         V2DirComm v2 dir = {s = v2.s ++ dir.s} ; -- command e.g., "go north"
@@ -26,12 +26,15 @@ concrete AdventureEng of Adventure = {
         -- general commands
         VComm v = {s = v.s} ; -- command e.g., "sleep"
         V2DetComm v2 det feat = {s = v2.s ++ det.s ++ feat.s} ; -- command e.g., "eat a fish", "eat fish" (missing determiner)
-        
 
-        missingdet_Det = {s = ""} ;                  -- determiner ommitted from sentence
+        Invalid = {s = "invalid input"} ;
+
+        missingdet_Det = {s = ""} ; -- determiner ommitted from sentence
         
-        a_Det = {s = "a(n)"} ;
-        baby_A = {s = "baby"} ;                -- e.g., "baby penguin"
+        a_Det = {s = "a"} ;
+        an_Det = {s = "an"} ;
+        a_n_Det = {s = "a(n)"} ;
+        baby_A = {s = "baby"} ; -- e.g., "baby penguin"
         bad_A = {s = "bad"} ;
         big_A = {s = "big"};
         bird_Anim = {s = "big"} ;
@@ -57,6 +60,7 @@ concrete AdventureEng of Adventure = {
         eat_V = {s = "eat"} ;
         eat_V2 = {s = "eat"} ;
         egg_Feat = {s = "egg"} ;
+        eight_Det = {s = "eight"} ;
         elephantseal_Anim = {s = "elephant seal"} ;
         emperorpenguin_Anim = {s = "emperor penguin"} ;
         fat_A = {s = "fat"} ;
@@ -65,20 +69,22 @@ concrete AdventureEng of Adventure = {
         female_A = {s = "female"} ;
         fish_Feat = {s = "fish"} ;
         fish_V = {s = "fish"} ;
+        five_Det = {s = "five"} ;
         friend_Anim = {s = "friend"} ;
         friendly_A = {s = "friendly"} ;
+        four_Det = {s = "four"} ;
         full_A = {s = "full"} ;
         glacier_Loc = {s = "glacier"} ;
         good_A = {s = "good"} ;
         go_V = {s = "go"} ;
-        go_V2 {s = "go"} ;
+        go_V2 = {s = "go"} ;
         green_A = {s = "green"} ;
         have_V = {s = "have"} ;
         have_V2 = {s = "have"} ;
         health_Feat = {s = "health"} ;
         heavy_A = {s = "heavy"} ;
         hot_A = {s = "hot"} ;
-        how_Q = {s = "how"} ;
+        howmuch_Q = {s = "howmuch"} ;
         human_Anim = {s = "human"} ;
         hungry_A = {s = "hungry"} ;
         iceberg_Loc = {s = "iceberg"} ;
@@ -93,9 +99,11 @@ concrete AdventureEng of Adventure = {
         mountain_Loc = {s = "mountain"} ;
         my_Det = {s = "my"} ;
         new_A = {s = "new"} ;
+        nine_Det = {s = "nine"} ;
         north_Dir = {s = "north"} ;
         ocean_Loc = {s = "ocean"} ;               -- synonym for "sea"
         old_A = {s = "old"} ;
+        one_Det = {s = "one"} ;
         orange_A = {s = "orange"} ;
         orca_Anim = {s = "orca"} ;
         penguin_Anim = {s = "penguin"} ;
@@ -109,8 +117,10 @@ concrete AdventureEng of Adventure = {
         sea_Loc = {s = "sea"} ;                   -- synonym for "ocean"
         seal_Anim = {s = "seal"} ;
         see_V2 = {s = "see"} ;
+        seven_Det = {s = "seven"} ;
         ship_Feat = {s = "ship"} ;
         ship_Scen = {s = "ship"} ;
+        six_Det = {s = "six"} ;
         sleep_V = {s = "sleep"} ;
         slide_V = {s = "slide"} ;
         slip_V = {s = "slip"} ;
@@ -122,10 +132,13 @@ concrete AdventureEng of Adventure = {
         sunset_Scen = {s = "sunset"} ;
         swim_V = {s = "swim"} ;
         talk_V = {s = "talk"} ;
+        ten_Det = {s = "ten"} ;
         that_Det = {s = "that"} ;
         the_Det = {s = "the"} ;
         this_Det = {s = "this"} ;
+        three_Det = {s = "three"} ;
         travel_V = {s = "travel"} ;
+        two_Det = {s = "two"} ;
         understand_V2 = {s = "understand"};
         waddle_V = {s = "waddle"} ;
         wait_V = {s = "wait"} ;
@@ -141,4 +154,17 @@ concrete AdventureEng of Adventure = {
         who_Q = {s = "who"} ;
         yellow_A = {s = "yellow"};
         young_A = {s = "young"} ;
+        zero_Det = {s = "zero"} ;
+
+        zero_num_Det = {s = "0"} ;
+        one_num_Det = {s = "1"} ;
+        two_num_Det = {s = "2"} ;
+        three_num_Det = {s = "3"} ;
+        four_num_Det = {s = "4"} ;
+        five_num_Det = {s = "5"} ;
+        six_num_Det = {s = "6"} ;
+        seven_num_Det = {s = "7"} ;
+        eight_num_Det = {s = "8"} ;
+        nine_num_Det = {s = "9"} ;
+        ten_num_Det = {s = "10"} ;
 }

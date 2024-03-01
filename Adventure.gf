@@ -24,15 +24,18 @@ abstract Adventure = {
         WhatInDetInv : Q -> Det -> Feat -> S ; -- "what is in my inventory"
         
         -- general commands
-        VComm : V -> S ;                        -- command e.g., "sleep"
-        V2DetComm : V2 -> Det -> Feat -> S ;    -- command e.g., "eat a fish"
+        VComm : V -> S ; -- command e.g., "sleep"
+        V2DetComm : V2 -> Det -> Feat -> S ; -- command e.g., "eat a fish"
 
+        Invalid : S ;
 
         -- figure out how to work with diff. verb conj. based on subj. and plural nouns
 
         missingdet_Det : Det ;
 
         a_Det : Det ;
+        an_Det : Det ;
+        a_n_Det : Det ;
         baby_A : A ;                -- e.g., "baby penguin"
         bad_A : A ;
         big_A : A ;
@@ -59,6 +62,7 @@ abstract Adventure = {
         eat_V : V ;
         eat_V2 : V2 ;
         egg_Feat : Feat ;
+        eight_Det : Det ;
         elephantseal_Anim : Anim ;
         emperorpenguin_Anim : Anim ;
         fat_A : A ;
@@ -67,8 +71,10 @@ abstract Adventure = {
         female_A : A ;
         fish_Feat : Feat ;
         fish_V : V ;
+        five_Det : Det ;
         friend_Anim : Anim ;
         friendly_A : A ;
+        four_Det : Det ;
         full_A : A ;
         glacier_Loc : Loc ;
         good_A : A ;
@@ -80,7 +86,7 @@ abstract Adventure = {
         health_Feat : Feat ;
         heavy_A : A ;
         hot_A : A ;
-        how_Q : Q ;
+        howmuch_Q : Q ;
         human_Anim : Anim ;
         hungry_A : A ;
         iceberg_Loc : Loc ;
@@ -95,9 +101,11 @@ abstract Adventure = {
         mountain_Loc : Loc ;
         my_Det : Det ;
         new_A : A ;
+        nine_Det : Det ;
         north_Dir : Dir ;
         ocean_Loc : Loc ;               -- synonym for "sea"
         old_A : A ;
+        one_Det : Det ;
         orange_A : A ;
         orca_Anim : Anim ;
         penguin_Anim : Anim ;
@@ -111,8 +119,10 @@ abstract Adventure = {
         sea_Loc : Loc ;                 -- synonym for "ocean"
         seal_Anim : Anim ;
         see_V2 : V2 ;
+        seven_Det : Det ;
         ship_Feat : Feat ;
         ship_Scen : Scen ;
+        six_Det : Det ;
         sleep_V : V ;
         slide_V : V ;
         slip_V : V ;
@@ -124,10 +134,13 @@ abstract Adventure = {
         sunset_Scen : Scen ;
         swim_V : V ;
         talk_V : V ;
+        ten_Det : Det ;
         that_Det : Det ;
         the_Det : Det ;
         this_Det : Det ;
+        three_Det : Det ;
         travel_V : V ;
+        two_Det : Det ;
         understand_V2 : V2 ;
         waddle_V : V ;
         wait_V : V ;
@@ -143,4 +156,17 @@ abstract Adventure = {
         who_Q : Q ;
         yellow_A : A ;
         young_A : A ;
+        zero_Det : Det ;
+
+        zero_num_Det : Det ;
+        one_num_Det : Det ;
+        two_num_Det : Det ;
+        three_num_Det : Det ;
+        four_num_Det : Det ;
+        five_num_Det : Det ;
+        six_num_Det : Det ;
+        seven_num_Det : Det ;
+        eight_num_Det : Det ;
+        nine_num_Det : Det ;
+        ten_num_Det : Det ;
 }
