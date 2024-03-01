@@ -4,7 +4,7 @@ Utilizes GF and Python to create a adventure exploration game incorporating natu
 
 ## Installation (Linux)
 
-Note: If your machine is not Linux, install and use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install).
+Note: If your operating system is Windows, install and use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 1. Clone repository.
 2. Download and [Grammatical Framework](https://www.grammaticalframework.org/download/index-3.11.html).
@@ -16,7 +16,6 @@ Note: If your machine is not Linux, install and use [Windows Subsystem for Linux
 ## Change log
 
 ## Known Issues
-- Grammar does not parse or generete sentences in past tense, only present tense
 
 ## Proposal
 
