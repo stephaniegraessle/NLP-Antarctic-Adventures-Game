@@ -17,6 +17,8 @@ def main():
     
     loc = [0,0] # initialize starting location
     inventory = [None] * 10 # create empty inventory of 10 items--change to [None,0]?
+    hunger = 100 # initialize full hunger
+    hp = 100 # initialize full hp
 
     quit = False
     success = False
