@@ -1,13 +1,14 @@
 import pgf
 
-PUNCT = ['.', ',',':',';']
+PUNCT = ['.','!','?',',',':',';']
 
 # Preprocesses user input for prepare it for parsing.
 # Input: string
 # Output: string
 def preprocess(sent):
     sent = sent.lower() # all to lowercase
-    for i in PUNCT:
+    # TODO: make exception for "I"... once done fix grammar files
+    for i in PUNCT: # remove punctuation
         sent = sent.replace(i,'')
     return sent
 
@@ -29,15 +30,26 @@ def linearize(expr, lang):
 
 # Outputs "The input is invalid."
 def invalid(lang):
-    output = linearize("PredVPS (DetCN the_Det (UseN input_N)) (UseComp (CompAP (PositA invalid_A)))", lang)
+    output = linearize("Invalid", lang)
     output = postprocess(output, '.')
     print(output)
 
 def test(func, args):
-    print("\tFunc:\t", func)
-    print("\tArgs:\t", args)
-    print("\tArgs[0]:", args[0])
-    print("\tArgs[1]:", args[1])
+    for i in range(2):
+        try:
+            if i == 0:
+                print("\tFunc:\t", func)
+            elif i == 1:
+                print("\tArgs:\t", args)
+        except:
+            print("\tTest error.")
+    
+    print("\tArgs:")
+    for a in args:
+        try:
+            print("\t",a)
+        except:
+            print("\tTest error.")
 
 def get_input(lang):
     success = False
