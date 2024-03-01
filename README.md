@@ -16,7 +16,6 @@ Note: If your operating system is Windows, install and use [Windows Subsystem fo
 ## Change log
 
 ## Known Issues
-- Grammar does not parse or generete sentences in past tense, only present tense
 
 ## Proposal
 
