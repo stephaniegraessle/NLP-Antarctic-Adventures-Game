@@ -1,6 +1,6 @@
 # NLP-Antarctic-Adventures-Game
 
-Utilizes GF and Python to create a adventure exploration game incorporating natural language processing.
+Utilizes GF and Python to create an adventure exploration game incorporating natural language processing.
 
 ## Installation (Linux)
 
@@ -19,7 +19,7 @@ Note: If your operating system is Windows, install and use [Windows Subsystem fo
 
 ## Proposal
 
-This is a basic adventure exploration chat system game created using GF and Python. In the game, the user is a penguin exploring around the Antactic. The penguin can complete different actions such as swimming in lakes or eating, and move around to different places. To incorporate the use of a data structure, I will use a list to have an "inventory" within which the penguin can pick up store a limited number of items such as fish or pebbles. Another list will also contain the different places the penguin can visit. The penguin will become hungry every certain number of turns, and will need to consume fish from the inventory to keep playing.
+This is a basic adventure exploration chat system game created using GF and Python. In the game, the user is a penguin exploring around the Antactic. The penguin can complete different actions such as swimming in the ocean or eating fish, and move around to different places. To incorporate the use of a data structure, I will use a list to have an "inventory" within which the penguin can pick up store a limited number of items such as fish or pebbles. Another list will also contain the different places the penguin can visit. The penguin will become hungry every certain number of turns, and will need to consume fish from the inventory to keep playing. If the penguin reaches 0 hunger, game over.
 
 Sample interaction
 
@@ -59,6 +59,6 @@ I may potentially add some of the following features if I have enough time or ab
 - A data structure holding coordinates of places where the penguin has been to before, creating a "map" of the generated world to remember where they have been before.
 
 Penguin needs:
-- Hunger
-- Energy
-- HP
+- Hunger 100
+- Energy 100
+- HP 100
