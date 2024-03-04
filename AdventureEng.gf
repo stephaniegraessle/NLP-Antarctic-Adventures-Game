@@ -32,6 +32,7 @@ concrete AdventureEng of Adventure = {
         missingdet_Det = {s = ""} ; -- determiner ommitted from sentence
         
         a_Det = {s = "a"} ;
+        acouple_Det = {s = "a couple"} ;
         an_Det = {s = "an"} ;
         a_n_Det = {s = "a(n)"} ;
         baby_A = {s = "baby"} ; -- e.g., "baby penguin"
@@ -99,6 +100,7 @@ concrete AdventureEng of Adventure = {
         mountain_Loc = {s = "mountain"} ;
         my_Det = {s = "my"} ;
         new_A = {s = "new"} ;
+        no_Det = {s = "no"} ;
         nine_Det = {s = "nine"} ;
         north_Dir = {s = "north"} ;
         ocean_Loc = {s = "ocean"} ;               -- synonym for "sea"

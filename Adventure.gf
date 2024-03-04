@@ -34,6 +34,7 @@ abstract Adventure = {
         missingdet_Det : Det ;
 
         a_Det : Det ;
+        acouple_Det : Det ;
         an_Det : Det ;
         a_n_Det : Det ;
         baby_A : A ;                -- e.g., "baby penguin"
@@ -102,21 +103,22 @@ abstract Adventure = {
         my_Det : Det ;
         new_A : A ;
         nine_Det : Det ;
+        no_Det : Det ;
         north_Dir : Dir ;
-        ocean_Loc : Loc ;               -- synonym for "sea"
+        ocean_Loc : Loc ; -- synonym for "sea"
         old_A : A ;
         one_Det : Det ;
         orange_A : A ;
         orca_Anim : Anim ;
         penguin_Anim : Anim ;
-        pickup_V2 : V ;                 -- "pick up"
+        pickup_V2 : V ; -- "pick up"
         play_V : V ;
         ready_A : A ;
         red_A : A ;
         river_Loc : Loc ;
         run_V : V ;
         scientist_Anim : Anim ;
-        sea_Loc : Loc ;                 -- synonym for "ocean"
+        sea_Loc : Loc ; -- synonym for "ocean"
         seal_Anim : Anim ;
         see_V2 : V2 ;
         seven_Det : Det ;
