@@ -74,22 +74,18 @@ def get_input(lang):
             success = True
         except:
             invalid(lang)
-    return args
+    return [func,args]
 
-# Input: args list
+# Input: list of PGF expressions
 # Output: One-word string of which type of sentence the args contains
 # Sentences types:
 # - Question
 # - Navigation
 #def get_type(args):
 
-# Input: args list
-# Output: verb of sentence
+# Input: list of PGF expressions
+# Output: verb of sentence as string
 #def get_verb(args):
-
-# Input: args list
-# Output: Action of sentence
-#def get_action(args):
 
 # Input: list of PGF expressions
 # Output: detemerminer of sentence as string
@@ -104,7 +100,7 @@ def get_det(args,gr):
     # TODO: May need to change this to PGF expr or other form
 
 # Input: det in PGF expression
-# Output: determiner amount (e.g., a,the,1, etc.=1; 2,two=2, etc.)
+# Output: determiner amount as integer (e.g., a,the,1, etc.=1; 2,two=2, etc.)
 def get_det_amount(det):
     zero = ["no_Det","zero_Det","zero_num_Det"]
     one = ["a_Det","an_Det","a_n_Det", "missingdet_Det","that_Det","the_Det","this_Det","one_Det","one_num_Det"]
@@ -127,11 +123,6 @@ def get_det_amount(det):
                 return count # return corresponding number of objects with determiner
         count+=1
 
-    #det_lin = linearize(det,lang)
-    #for num in range(10): #0-10
-    #    for word in nums[num]:
-    #        if det == word:
-    #            return num
-    #return -1 # no match
+    return -1 # no match
 
 
