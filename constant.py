@@ -1,0 +1,2 @@
+MAX_HP = 100
+MAX_HUNGER = 100
