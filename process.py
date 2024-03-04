@@ -2,6 +2,12 @@ import pgf
 
 PUNCT = ['.','!','?',',',':',';']
 
+def print_grammar_info(gr):
+    print("\nCategories:\n",gr.categories)
+    print("\nFunctions:\n",gr.functions)
+    print("\nFunction type of 'a_Det':\n",gr.functionType("a_Det"))
+    print("\nFunction type Python type:\n",type(gr.functionType("a_Det")))
+
 # Preprocesses user input for prepare it for parsing.
 # Input: string
 # Output: string
@@ -21,14 +27,15 @@ def postprocess(sent, punct):
     return sent
 
 # Reads a PGF expression and linearizes it to a string.
-# input: PGF expression
-# output: string
+# Input: PGF expression
+# Output: string
 def linearize(expr, lang):
     expr = pgf.readExpr(expr)
     expr = lang.linearize(expr)
     return expr
 
-# Outputs "The input is invalid."
+# Input: Language which statement should be linearized to
+# Output: Print statement for invalid input
 def invalid(lang):
     output = linearize("Invalid", lang)
     output = postprocess(output, '.')
@@ -55,7 +62,7 @@ def get_input(lang):
     success = False
     while not success:
         try:
-            sent = input("Enter sentence: ")
+            sent = input("\nEnter sentence: ")
             sent = preprocess(sent) # preprocess sentence
 
             i = lang.parse(sent) # parse sentence
@@ -68,3 +75,63 @@ def get_input(lang):
         except:
             invalid(lang)
     return args
+
+# Input: args list
+# Output: One-word string of which type of sentence the args contains
+# Sentences types:
+# - Question
+# - Navigation
+#def get_type(args):
+
+# Input: args list
+# Output: verb of sentence
+#def get_verb(args):
+
+# Input: args list
+# Output: Action of sentence
+#def get_action(args):
+
+# Input: list of PGF expressions
+# Output: detemerminer of sentence as string
+def get_det(args,gr):
+    det_list = gr.functionsByCat("Det") # list of all determiners in grammar
+    
+    for a in args: # go thru words in sentence
+        for d in det_list: # go thru determiners in grammar
+            if a == pgf.readExpr(d):
+                return d # return determiner as string
+    return "None" # No determiner found in sentence
+    # TODO: May need to change this to PGF expr or other form
+
+# Input: det in PGF expression
+# Output: determiner amount (e.g., a,the,1, etc.=1; 2,two=2, etc.)
+def get_det_amount(det):
+    zero = ["no_Det","zero_Det","zero_num_Det"]
+    one = ["a_Det","an_Det","a_n_Det", "missingdet_Det","that_Det","the_Det","this_Det","one_Det","one_num_Det"]
+    two = ["acouple_Det","two_Det","two_num_Det"]
+    three = ["three_Det","three_num_Det"]
+    four = ["four_Det","four_num_Det"]
+    five = ["five_Det","five_num_Det"]
+    six = ["six_Det","six_num_Det"]
+    seven = ["seven_Det","seven_num_Det"]
+    eight = ["eight_Det","eight_num_Det"]
+    nine = ["nine_Det","nine_num_Det"]
+    ten = ["ten_Det","ten_num_Det"]
+
+    nums = [zero,one,two,three,four,five,six,seven,eight,nine,ten]
+    
+    count = 0
+    for n in nums:
+        for word in n:
+            if det == word:
+                return count # return corresponding number of objects with determiner
+        count+=1
+
+    #det_lin = linearize(det,lang)
+    #for num in range(10): #0-10
+    #    for word in nums[num]:
+    #        if det == word:
+    #            return num
+    #return -1 # no match
+
+
