@@ -20,22 +20,26 @@ def main():
     lang = gr.languages["AdventureEng"] # get English languge (default)
     #process.print_grammar_info(gr) # Print info about grammar
 
-    environ = helper.gen_environ() # intialize starting environment
+    environ = helper.gen_environ() # init starting environment
 
-    loc = [0,0] # initialize starting location
-    inventory = [None] * 10 # create empty inventory of 10 items--change to [None,0]?
-    hunger = constant.MAX_HUNGER # initialize full hunger
-    hp = constant.MAX_HP # initialize full hp
+    loc = [0,0] # init starting location
+    inv = {} # init empty dictionary as inventory
+    hunger = constant.MAX_HUNGER # init full hunger
+    hp = constant.MAX_HP # init full hp
 
     quit = False
     success = False
-    while not quit:
+    while not quit and hp > 0: # TODO: Make dialogue for if die from low HP
+        print()
         try:
-            
+            helper.print_stats(hunger,hp)
+            helper.print_inv(inv)
 
             # program gives information about environment
 
-            args = process.get_input(lang) # get user input
+            input = process.get_input(lang) # get user input as list of [func,args]
+            func = input[0]
+            args = input[1]
 
             # determine which type of command the user inputted
             #type = process.get_type(args)
@@ -51,8 +55,8 @@ def main():
             #det_amt = process.get_det_amount(det)
             #print("Det amount:",det_amt)
 
-            #hunger = helper.lose_hunger(hunger,5)
-            #hp = helper.hunger_check(hunger,hp)
+            hunger = helper.lose_hunger(hunger,constant.NORMAL_HUNGER_LOSS_RATE) # lose hunger per turn
+            hp = helper.check_if_starving(hunger,hp) # lose HP if hunger too low
         except:
             #os.system("rm Adventure.pgf") # remove generated PGF file
             exit()
