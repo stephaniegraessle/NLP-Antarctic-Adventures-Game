@@ -16,6 +16,12 @@ Note: If your operating system is Windows, install and use [Windows Subsystem fo
 ## Change log
 
 ## Known Issues
+As of now, the program only parses sentences from the known grammar.
+- Does not describe environment
+- Cannot move around
+- Cannot add objects to inventory
+- Cannot remove objects from inventory
+- Environment generation requires generation of function to distinguish between environments
 
 ## Proposal
 
