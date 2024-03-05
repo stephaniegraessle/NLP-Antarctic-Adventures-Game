@@ -166,3 +166,6 @@ cython_debug/
 *.ps
 *.tmp
 *.pgf
+
+# log files
+*.log
