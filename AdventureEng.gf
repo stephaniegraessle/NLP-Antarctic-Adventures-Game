@@ -27,6 +27,7 @@ concrete AdventureEng of Adventure = {
         VComm v = {s = v.s} ; -- command e.g., "sleep"
         V2DetComm v2 det feat = {s = v2.s ++ det.s ++ feat.s} ; -- command e.g., "eat a fish", "eat fish" (missing determiner)
 
+        DontHave = {s = "you don't have any"} ;
         Invalid = {s = "invalid input"} ;
 
         missingdet_Det = {s = ""} ; -- determiner ommitted from sentence
@@ -45,6 +46,7 @@ concrete AdventureEng of Adventure = {
         boat_Feat = {s = "boat"} ;
         break_V2 = {s = "break"};
         building_Feat = {s = "building"} ;
+        carry_V2 = {s = "carry"} ;
         clean_A = {s = "clean"} ;
         clever_A = {s = "clever"} ;
         clouds_Scen = {s = "clouds"} ;
@@ -57,6 +59,8 @@ concrete AdventureEng of Adventure = {
         dirty_A = {s = "dirty"} ;
         drink_V = {s = "drink"} ;
         drink_V2 = {s = "drink"} ;
+        drop_V2 = {s = "drop"} ;
+        e_Dir = {s = "e"} ;
         east_Dir = {s = "east"} ;
         eat_V = {s = "eat"} ;
         eat_V2 = {s = "eat"} ;
@@ -75,10 +79,13 @@ concrete AdventureEng of Adventure = {
         friendly_A = {s = "friendly"} ;
         four_Det = {s = "four"} ;
         full_A = {s = "full"} ;
+        gain_V2 = {s = "gain"} ;
         glacier_Loc = {s = "glacier"} ;
+        get_V2 = {s = "get"} ;
         good_A = {s = "good"} ;
         go_V = {s = "go"} ;
         go_V2 = {s = "go"} ;
+        grab_V2 = {s = "grab"} ;
         green_A = {s = "green"} ;
         have_V = {s = "have"} ;
         have_V2 = {s = "have"} ;
@@ -93,12 +100,16 @@ concrete AdventureEng of Adventure = {
         laboratory_Loc = {s = "laboratory"} ;
         lake_Loc = {s = "lake"} ;
         leopardseal_Anim = {s = "leopard seal"} ;
+        lift_V2 = {s = "lift"} ;
         live_V = {s = "live"} ;
         love_V2 = {s = "love"} ;
         male_A = {s = "male"} ;
         meet_V2 = {s = "meet"} ;
         mountain_Loc = {s = "mountain"} ;
+        move_V = {s = "move"} ;
+        move_V2 = {s = "move"} ;
         my_Det = {s = "my"} ;
+        n_Dir = {s = "n"} ;
         new_A = {s = "new"} ;
         no_Det = {s = "no"} ;
         nine_Det = {s = "nine"} ;
@@ -111,14 +122,18 @@ concrete AdventureEng of Adventure = {
         penguin_Anim = {s = "penguin"} ;
         pickup_V2 = {s = "pick up"} ;             -- "pick up"
         play_V = {s = "play"} ;
+        punch_V2 = {s = "punch"} ;
+        putdown_V2 = {s = "put down"} ;
         ready_A = {s = "ready"} ;
         red_A = {s = "red"} ;
         river_Loc = {s = "river"} ;
         run_V = {s = "run"} ;
+        s_Dir = {s = "s"} ;
         scientist_Anim = {s = "scientist"} ;
         sea_Loc = {s = "sea"} ;                   -- synonym for "ocean"
         seal_Anim = {s = "seal"} ;
         see_V2 = {s = "see"} ;
+        setdown_V2 = {s = "set down"} ;
         seven_Det = {s = "seven"} ;
         ship_Feat = {s = "ship"} ;
         ship_Scen = {s = "ship"} ;
@@ -142,6 +157,7 @@ concrete AdventureEng of Adventure = {
         travel_V = {s = "travel"} ;
         two_Det = {s = "two"} ;
         understand_V2 = {s = "understand"};
+        w_Dir = {s = "w"} ;
         waddle_V = {s = "waddle"} ;
         wait_V = {s = "wait"} ;
         walk_V = {s = "walk"} ;

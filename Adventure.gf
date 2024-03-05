@@ -27,6 +27,7 @@ abstract Adventure = {
         VComm : V -> S ; -- command e.g., "sleep"
         V2DetComm : V2 -> Det -> Feat -> S ; -- command e.g., "eat a fish"
 
+        DontHave : S ;
         Invalid : S ;
 
         -- figure out how to work with diff. verb conj. based on subj. and plural nouns
@@ -47,6 +48,7 @@ abstract Adventure = {
         boat_Feat : Feat ;
         break_V2 : V2 ;
         building_Feat : Feat ;
+        carry_V2 : V2 ;
         clean_A : A ;
         clever_A : A ;
         clouds_Scen : Scen ;
@@ -59,6 +61,8 @@ abstract Adventure = {
         dirty_A : A ;
         drink_V : V ;
         drink_V2 : V2 ;
+        drop_V2 : V2 ;
+        e_Dir : Dir ;
         east_Dir : Dir ;
         eat_V : V ;
         eat_V2 : V2 ;
@@ -77,10 +81,13 @@ abstract Adventure = {
         friendly_A : A ;
         four_Det : Det ;
         full_A : A ;
+        gain_V2 : V2 ;
         glacier_Loc : Loc ;
+        get_V2 : V2 ;
         good_A : A ;
         go_V : V ;
         go_V2 : V2 ;
+        grab_V2 : V2 ;
         green_A : A ;
         have_V : V ;
         have_V2 : V2 ;
@@ -100,7 +107,10 @@ abstract Adventure = {
         male_A : A ;
         meet_V2 : V2 ;
         mountain_Loc : Loc ;
+        move_V : V ;
+        move_V2 : V2 ;
         my_Det : Det ;
+        n_Dir : Dir ;
         new_A : A ;
         nine_Det : Det ;
         no_Det : Det ;
@@ -111,16 +121,20 @@ abstract Adventure = {
         orange_A : A ;
         orca_Anim : Anim ;
         penguin_Anim : Anim ;
-        pickup_V2 : V ; -- "pick up"
+        pickup_V2 : V2 ; -- "pick up"
         play_V : V ;
+        punch_V2 : V2 ;
+        putdown_V2 : V2 ;
         ready_A : A ;
         red_A : A ;
         river_Loc : Loc ;
         run_V : V ;
+        s_Dir : Dir ;
         scientist_Anim : Anim ;
         sea_Loc : Loc ; -- synonym for "ocean"
         seal_Anim : Anim ;
         see_V2 : V2 ;
+        setdown_V2 : V2 ;
         seven_Det : Det ;
         ship_Feat : Feat ;
         ship_Scen : Scen ;
@@ -144,6 +158,7 @@ abstract Adventure = {
         travel_V : V ;
         two_Det : Det ;
         understand_V2 : V2 ;
+        w_Dir : Dir ;
         waddle_V : V ;
         wait_V : V ;
         walk_V : V ;
