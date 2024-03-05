@@ -17,6 +17,10 @@ ENVIRON_TYPES = ['snow field','ocean'] #TODO: Add 'mountain
 SNOW_FIELD_ITEMS = ['snow_Feat','rock_Feat','ice_Feat']
 OCEAN_ITEMS = ['fish_Feat'] # Change to weighted generation in helper.gen_ground_items() if more items added to this list
 
+# action types
+COMMAND_FUNCS = ['V2DetComm','VComm']
+NAVIGATION_FUNCS = ['VDirComm','V2DirComm']
+
 # objects
 FOOD_WORDS = ['fish_Feat']
 
