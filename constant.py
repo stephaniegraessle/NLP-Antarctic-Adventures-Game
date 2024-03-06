@@ -13,7 +13,7 @@ FOOD_HP_GAIN_RATE = 5
 STARVING_HP_LOSS_RATE = 1
 
 # environments
-ENVIRON_TYPES = ['snow field','ocean'] #TODO: Add 'mountain
+ENVIRON_TYPES = ['snowfield_Loc','ocean_Loc'] #TODO: Add 'mountain_Loc'
 SNOW_FIELD_ITEMS = ['snow_Feat','rock_Feat','ice_Feat']
 OCEAN_ITEMS = ['fish_Feat'] # Change to weighted generation in helper.gen_ground_items() if more items added to this list
 
@@ -52,3 +52,6 @@ NUMS = [ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN]
 # proper nouns (if some added, TODO: use for capitalization in postprocessing)
 PLACES = []
 NAMES = []
+
+# acronyms (TODO: in all caps in postprocessing)
+ALL_CAPS = ['hp_Stat']
