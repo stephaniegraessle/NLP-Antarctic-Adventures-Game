@@ -1,3 +1,8 @@
+# Do not add function names to this file that are not in Adventure.gf and linearized in all language grammar files Adventure[Lang].gf
+
+# Output delay
+DELAY = 0.5
+
 # Inventory/needs maximum sizes
 INVENTORY_SIZE = 10
 MAX_HP = 10
@@ -18,11 +23,16 @@ SNOW_FIELD_ITEMS = ['snow_Feat','rock_Feat','ice_Feat']
 OCEAN_ITEMS = ['fish_Feat'] # Change to weighted generation in helper.gen_ground_items() if more items added to this list
 
 # action types
-COMMAND_FUNCS = ['V2DetComm','VComm']
+COMMAND_FUNCS = ['VComm','VDetComm','V2DetComm']
 NAVIGATION_FUNCS = ['VDirComm','V2DirComm']
+HAVE_FUNCS = [] # inquiries about inventory contents or hunger/HP stats
 
-# objects
-FOOD_WORDS = ['fish_Feat']
+# static statement constructions
+ARENT_ANY_EXPR = 'ArentAny'
+DEATH_EXPR = 'Death'
+DONT_HAVE_EXPR = 'DontHave'
+ERROR_EXPR = 'Invalid'
+WELCOME_EXPR = 'Welcome'
 
 # cardinal directions
 NORTH = ['n_Dir','north_Dir']
@@ -30,10 +40,13 @@ SOUTH = ['s_Dir','south_Dir']
 EAST = ['e_Dir','east_Dir']
 WEST = ['w_Dir','west_Dir']
 
+# objects
+FOOD_WORDS = ['fish_Feat']
+
 # verbs
-EAT_WORDS = ['consume_V','consume_V2','eat_V','eat_V2']
-PICK_UP_WORDS = ['carry_V2','gain_V2','get_V2','grab_V2','lift_V2','pickup_V2']
 DROP_WORDS = ['drop_V2','putdown_V2','setdown_V2']
+EAT_WORDS = ['consume_V','consume_V2','eat_V','eat_V2']
+PICK_UP_WORDS = ['carry_V2','catch_V2','gain_V2','get_V2','grab_V2','lift_V2','pickup_V2']
 
 # determiners
 ZERO = ['no_Det','zero_Det','zero_num_Det']
@@ -47,6 +60,8 @@ SEVEN = ['seven_Det','seven_num_Det']
 EIGHT = ['eight_Det','eight_num_Det']
 NINE = ['nine_Det','nine_num_Det']
 TEN = ['ten_Det','ten_num_Det']
+# ALL = ['all_Det','these_Det','those_Det','every_Det'] # TODO: Implement in helper.py
+# UNKNOWN = ['some_Det','afew_Det'] # TODO: Implement in helper.py
 NUMS = [ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN]
 
 # proper nouns (if some added, TODO: use for capitalization in postprocessing)
