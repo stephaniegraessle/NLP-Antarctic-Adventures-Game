@@ -7,33 +7,47 @@ concrete AdventureEng of Adventure = {
         Dir = {s : Str} ;
         Feat = {s : Str} ;
         Loc = {s : Str} ;
+        Prep = {s : Str} ;
+		Pron = {s : Str } ;
         Q = {s : Str} ;
         Scen = {s : Str} ;
+        Stat = {s : Str} ;
         V = {s : Str} ;
         V2 = {s : Str} ;
-
+        
     lin
         -- navigation
         QInq q = {s = q.s ++ "am i"} ; -- "where am I", "who am I"
         AtLoc loc det = {s = "you are at" ++ det.s ++ loc.s} ; -- "you are at a lake"
         TravToLoc v loc = {s = v.s ++ "to" ++ loc.s} ; -- "[go/walk/travel/slide/swim/waddle, etc.] to [Loc]"
+        VDirComm v dir = {s = v.s ++ dir.s} ; -- command e.g., "go north"
         V2DirComm v2 dir = {s = v2.s ++ dir.s} ; -- command e.g., "go north"
  
         -- inventory management
+        AddFeatPrepFeat d f_a prep f_b = {s = "added" ++ d.s ++ f_a.s ++ prep.s ++ f_b.s} ;
+        RemFeatPrepFeat d f_a prep f_b = {s = "removed" ++ d.s ++ f_a.s ++ prep.s ++ f_b.s} ;
         WhatHaveInq q v = {s = q.s ++ "do I" ++ v.s} ; -- "what do I have"
         WhatInDetInv q det feat = {s = q.s ++ "is in" ++ det.s ++ feat.s} ; -- "what is in my inventory"
 
         -- general commands
         VComm v = {s = v.s} ; -- command e.g., "sleep"
+		VDetComm v det = {s = v.s ++ det.s} ; -- command e.g., "pick up all"/"pick up that"
         V2DetComm v2 det feat = {s = v2.s ++ det.s ++ feat.s} ; -- command e.g., "eat a fish", "eat fish" (missing determiner)
+		
 
+		-- static statements
+		ArentAny = {s = "there aren't any"} ;
+		Death = {s = "you died" } ;
         DontHave = {s = "you don't have any"} ;
         Invalid = {s = "invalid input"} ;
+		Welcome = {s = "welcome to Antarctic Adventures" } ;
 
         missingdet_Det = {s = ""} ; -- determiner ommitted from sentence
-        
+
         a_Det = {s = "a"} ;
         acouple_Det = {s = "a couple"} ;
+		afew_Det = {s = "a few"} ;
+        all_Det = {s = "all"} ;
         an_Det = {s = "an"} ;
         a_n_Det = {s = "a(n)"} ;
         baby_A = {s = "baby"} ; -- e.g., "baby penguin"
@@ -47,6 +61,7 @@ concrete AdventureEng of Adventure = {
         break_V2 = {s = "break"};
         building_Feat = {s = "building"} ;
         carry_V2 = {s = "carry"} ;
+		catch_V2 = {s = "catch"} ;
         clean_A = {s = "clean"} ;
         clever_A = {s = "clever"} ;
         clouds_Scen = {s = "clouds"} ;
@@ -68,6 +83,7 @@ concrete AdventureEng of Adventure = {
         eight_Det = {s = "eight"} ;
         elephantseal_Anim = {s = "elephant seal"} ;
         emperorpenguin_Anim = {s = "emperor penguin"} ;
+        every_Det = {s = "every"} ;
         fat_A = {s = "fat"} ;
         find_V2 = {s = "find"} ;
         fire_Feat = {s = "fire"} ;
@@ -78,6 +94,7 @@ concrete AdventureEng of Adventure = {
         friend_Anim = {s = "friend"} ;
         friendly_A = {s = "friendly"} ;
         four_Det = {s = "four"} ;
+        from_Prep = {s = "from"} ;
         full_A = {s = "full"} ;
         gain_V2 = {s = "gain"} ;
         glacier_Loc = {s = "glacier"} ;
@@ -91,10 +108,15 @@ concrete AdventureEng of Adventure = {
         have_V2 = {s = "have"} ;
         health_Feat = {s = "health"} ;
         heavy_A = {s = "heavy"} ;
+        help_V = {s = "help"} ;
+        help_V2 = {s = "help"} ;
         hot_A = {s = "hot"} ;
-        howmuch_Q = {s = "howmuch"} ;
+        howmuch_Q = {s = "how much"} ;
+        hp_Stat = {s = "hp"} ;
         human_Anim = {s = "human"} ;
+        hunger_Stat = {s = "hunger"} ;
         hungry_A = {s = "hungry"} ;
+        ice_Feat = {s = "ice"} ;
         iceberg_Loc = {s = "iceberg"} ;
         inventory_Feat = {s = "inventory"} ;
         laboratory_Loc = {s = "laboratory"} ;
@@ -114,7 +136,7 @@ concrete AdventureEng of Adventure = {
         no_Det = {s = "no"} ;
         nine_Det = {s = "nine"} ;
         north_Dir = {s = "north"} ;
-        ocean_Loc = {s = "ocean"} ;               -- synonym for "sea"
+        ocean_Loc = {s = "ocean"} ; -- synonym for "sea"
         old_A = {s = "old"} ;
         one_Det = {s = "one"} ;
         orange_A = {s = "orange"} ;
@@ -127,6 +149,7 @@ concrete AdventureEng of Adventure = {
         ready_A = {s = "ready"} ;
         red_A = {s = "red"} ;
         river_Loc = {s = "river"} ;
+        rock_Feat = {s = "rock"} ;
         run_V = {s = "run"} ;
         s_Dir = {s = "s"} ;
         scientist_Anim = {s = "scientist"} ;
@@ -144,6 +167,8 @@ concrete AdventureEng of Adventure = {
         small_A = {s = "small"} ;
         snow_Feat = {s = "snow"} ;
         snow_Scen = {s = "snow"} ;
+        snowfield_Loc = {s = "snow field"} ;
+		some_Det = {s = "some" } ;
         south_Dir = {s = "south"} ;
         stars_Scen = {s = "stars"} ;
         sunset_Scen = {s = "sunset"} ;
@@ -152,8 +177,11 @@ concrete AdventureEng of Adventure = {
         ten_Det = {s = "ten"} ;
         that_Det = {s = "that"} ;
         the_Det = {s = "the"} ;
+        these_Det = {s = "these"} ;
         this_Det = {s = "this"} ;
+        those_Det = {s = "those"} ;
         three_Det = {s = "three"} ;
+        to_Prep = {s = "to"} ;
         travel_V = {s = "travel"} ;
         two_Det = {s = "two"} ;
         understand_V2 = {s = "understand"};

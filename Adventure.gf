@@ -7,8 +7,11 @@ abstract Adventure = {
         Dir ;               -- cardinal direction
         Feat ;              -- feature which contains interactions
         Loc ;               -- location (permanent) e.g., "lake"
+        Prep ;              -- preposition
+		Pron ;				-- pronoun
         Q ;                 -- question word, e.g., "where"
         Scen ;              -- scenery (that changes) e.g., "sunset", "cloud"
+        Stat ;              -- stat e.g., hunger, HP
         V ;                 -- one-place verb
         V2 ;                -- two-place verb
 
@@ -17,25 +20,35 @@ abstract Adventure = {
         QInq : Q -> S; -- "where am I"
         AtLoc : Loc -> Det -> S ; -- "you are at a lake"
         TravToLoc : V -> Loc -> S ; -- "[go/walk/travel/slide/swim/waddle, etc.] to [Loc]"
+        VDirComm : V -> Dir -> S ; -- command e.g., "go north"
         V2DirComm : V2 -> Dir -> S ; -- command e.g., "go north"
         
-        -- inventory management
+        -- inventory/ground item management
+        AddFeatPrepFeat : Det -> Feat -> Prep -> Feat -> S ;
+        RemFeatPrepFeat : Det -> Feat -> Prep -> Feat -> S ;
         WhatHaveInq : Q -> V -> S ; -- "what do I have"
         WhatInDetInv : Q -> Det -> Feat -> S ; -- "what is in my inventory"
         
         -- general commands
         VComm : V -> S ; -- command e.g., "sleep"
+		VDetComm : V -> Det -> S ; -- command e.g., "pick up all"/"pick up that"
         V2DetComm : V2 -> Det -> Feat -> S ; -- command e.g., "eat a fish"
-
+		
+		-- static statements
+		ArentAny : S ;
+		Death : S ;
         DontHave : S ;
         Invalid : S ;
+		Welcome : S ;
 
-        -- figure out how to work with diff. verb conj. based on subj. and plural nouns
-
+        -- missing words
         missingdet_Det : Det ;
 
+        -- words
         a_Det : Det ;
         acouple_Det : Det ;
+		afew_Det : Det ;
+        all_Det : Det ;
         an_Det : Det ;
         a_n_Det : Det ;
         baby_A : A ;                -- e.g., "baby penguin"
@@ -49,6 +62,7 @@ abstract Adventure = {
         break_V2 : V2 ;
         building_Feat : Feat ;
         carry_V2 : V2 ;
+		catch_V2 : V2 ;
         clean_A : A ;
         clever_A : A ;
         clouds_Scen : Scen ;
@@ -70,6 +84,7 @@ abstract Adventure = {
         eight_Det : Det ;
         elephantseal_Anim : Anim ;
         emperorpenguin_Anim : Anim ;
+        every_Det : Det ;
         fat_A : A ;
         find_V2 : V2 ;
         fire_Feat : Feat ;
@@ -79,6 +94,7 @@ abstract Adventure = {
         five_Det : Det ;
         friend_Anim : Anim ;
         friendly_A : A ;
+        from_Prep : Prep ;
         four_Det : Det ;
         full_A : A ;
         gain_V2 : V2 ;
@@ -93,15 +109,21 @@ abstract Adventure = {
         have_V2 : V2 ;
         health_Feat : Feat ;
         heavy_A : A ;
+        help_V : V ;
+        help_V2 : V2 ;
         hot_A : A ;
         howmuch_Q : Q ;
+        hp_Stat : Stat ;
         human_Anim : Anim ;
+        hunger_Stat : Stat ;
         hungry_A : A ;
+        ice_Feat : Feat ;
         iceberg_Loc : Loc ;
         inventory_Feat : Feat ;
         laboratory_Loc : Loc ;
         lake_Loc : Loc ;
         leopardseal_Anim : Anim ;
+        lift_V2 : V2 ;
         live_V : V ;
         love_V2 : V2 ;
         male_A : A ;
@@ -128,6 +150,7 @@ abstract Adventure = {
         ready_A : A ;
         red_A : A ;
         river_Loc : Loc ;
+        rock_Feat : Feat ;
         run_V : V ;
         s_Dir : Dir ;
         scientist_Anim : Anim ;
@@ -145,6 +168,8 @@ abstract Adventure = {
         small_A : A ;
         snow_Feat : Feat ;
         snow_Scen : Scen ;
+        snowfield_Loc : Loc ;
+		some_Det : Det ;
         south_Dir : Dir ;
         stars_Scen : Scen ;
         sunset_Scen : Scen ;
@@ -153,8 +178,11 @@ abstract Adventure = {
         ten_Det : Det ;
         that_Det : Det ;
         the_Det : Det ;
+        these_Det : Det ;
         this_Det : Det ;
+        those_Det : Det ;
         three_Det : Det ;
+        to_Prep : Prep ;
         travel_V : V ;
         two_Det : Det ;
         understand_V2 : V2 ;
