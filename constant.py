@@ -33,6 +33,8 @@ CURRENT_LOC_EXPR = 'ArePrepLoc you_Pron at_Prep missingdet_Det location_Loc'
 DEATH_EXPR = 'Death'
 DONT_HAVE_EXPR = 'PronDontV2AnyFeat you_Pron have_V2' # +Feat
 ENVIRON_EXPR = 'ArePrepLoc you_Pron at_Prep' # +Det +Loc
+#FEAT_EXPR = 'FeatAlone' # +Feat
+GOODBYE_EXPR = 'Goodbye'
 HP_EXPR = 'FeatAlone hp_Feat'
 HUNGER_EXPR = 'FeatAlone hunger_Feat'
 INVALID_INPUT_EXPR = 'Invalid'
@@ -42,6 +44,7 @@ INV_FULL_EXPR = 'YourFeatIsA inventory_Feat full_A'
 MOVE_LOC_EXPR = 'PronV2PrepLoc you_Pron move_V2 to_Prep location_Loc' # loc tuple
 PICK_UP_EXPR = 'PronV2DetFeat you_Pron pickup_V2' # +Det +Feat
 SEE_EXPR = 'PronV2DetFeat you_Pron see_V2' # +Det +Feat
+SEE_NOTHING_EXPR = 'SeeNothing'
 WELCOME_EXPR = 'Welcome'
 
 # cardinal directions
@@ -58,6 +61,7 @@ DROP_WORDS = ['drop_V2','putdown_V2','setdown_V2']
 EAT_WORDS = ['consume_V','consume_V2','eat_V','eat_V2']
 HELP_WORDS = ['help_V','help_V2']
 PICK_UP_WORDS = ['carry_V2','catch_V2','gain_V2','gather_V2','get_V2','grab_V2','lift_V2','pickup_V2','take_V2']
+QUIT_WORDS = ['quit_V','quit_V2','exit_V','exit_V2']
 
 # determiners
 ZERO = ['no_Det','zero_Det','zero_num_Det']
