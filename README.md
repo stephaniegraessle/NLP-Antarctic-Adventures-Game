@@ -1,70 +1,43 @@
 # NLP-Antarctic-Adventures-Game
 
-Utilizes GF and Python to create an adventure exploration game incorporating natural language processing.
+Antarctic Adventures is an adventure exploration game featuring the player as a penguin in Antarctica. The game was created using [Python](https://www.python.org/) and [Grammatical Framework](https://www.grammaticalframework.org/). By typing commands into the chat system, the games uses utilizing natural language processing (NLP) to parse and carry out different command sentences, such as picking up and eating fish and other items and exploring around in the game map.
 
 ## Installation (Linux)
 
 Note: If your operating system is Windows, install and use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install).
 
-1. Clone repository.
-2. Download and [Grammatical Framework](https://www.grammaticalframework.org/download/index-3.11.html).
-3. Run updates with `sudo apt update && upgrade`.
-4. Install Python with `sudo apt install python3 python3-pip ipython3 `.
-5. Install PGF with `pip install pgf`.
-6. Run program with `python3 Adventure.py`.
+1. Clone the repository in the target file location.
+2. Run updates on the Linux machine with `sudo apt update && upgrade`.
+3. Install Python with `sudo apt install python3 python3-pip ipython3 `.
+4. Install PGF for Python with `pip install pgf`.
+5. Run the program with `python3 main.py`.
+
+## User guide
+
+### Player needs
+You start with MAX_HUNGER and MAX_HP. Each turn, hunger decreases by NORMAL_HUNGER_LOSS_RATE until reaching 0. Eating food will increase the hunger by FOOD_HUNGER_GAIN_RATE. If hunger reaches 0, the HP will decrease each turn by STARVING_HP_LOSS_RATE. If HP reaches 0, the game ends.
+|Stat|Amount|Ways to decrease|Ways to increase|
+|---|---|---|---|
+|Hunger|0-MAX_HUNGER|-NORMAL_HUNGER_LOSS_RATE each turn|+FOOD_HUNGER_GAIN_RATE when eating food|
+|HP|0-MAX_HP|-STARVING_HP_LOSS_RATE each turn when Hunger is at 0|+FOOD_HP_GAIN_RATE when eating food|
+
+These constant values can be modified in constant.py.
+
+#### Foods
+Currently, the only food in the game is fish, which you can find in the ocean environment.
+
+### Navigation
+You start at location (0,0), and can command to move in the cardinal directions North, East, West, or South to explore different areas. When moving locations, the program generates a new environment with different items in it. Use this feature to catch fish to eat.
 
 ## Change log
+### 10 March, 2024
+- Program states player location, generated environment, and inventory contents
+- With commands, player can:
+  - Pick up items to add to inventory
+  - Drop items, removing them from inventory and placing them back in environment
+  - Eat fish, removing them from inventory and increasing hunger
+  - Move to a different location
+- Player dies if HP becomes 0 from hunger loss
 
 ## Known Issues
-As of now, the program only parses sentences from the known grammar.
-- Does not describe environment
-- Cannot move around
-- Cannot add objects to inventory
-- Cannot remove objects from inventory
-- Environment generation requires generation of function to distinguish between environments
-
-## Proposal
-
-This is a basic adventure exploration chat system game created using GF and Python. In the game, the user is a penguin exploring around the Antactic. The penguin can complete different actions such as swimming in the ocean or eating fish, and move around to different places. To incorporate the use of a data structure, I will use a list to have an "inventory" within which the penguin can pick up store a limited number of items such as fish or pebbles. Another list will also contain the different places the penguin can visit. The penguin will become hungry every certain number of turns, and will need to consume fish from the inventory to keep playing. If the penguin reaches 0 hunger, game over.
-
-Sample interaction
-
-Computer: You are at a mountain. There is a lake to the north. There is the ocean to the south.
-
-User: Go north.
-
-Computer: You are at the lake. You can fish or swim.
-
-User: Swim.
-
-Computer: You swim in the lake. You can keep swimming, fish, or leave.
-
-User: Fish.
-
-Computer: You catch 2 fish. You can keep fishing or leave.
-
-User: Leave.
-
-Computer: You get out of the lake. You are at the lake. There is a mountain to the south. There is a field of ice to the east.
-
-User: What is in my inventory?
-
-Computer: You have 2 fish and 1 pebble.
-
-User: Drop a pebble.
-
-Computer: You dropped the pebble. You are hungry. You have 2 fish.
-
-User: Eat a fish.
-
-Computer: You ate a fish. You have 1 fish left.
-
-
-I may potentially add some of the following features if I have enough time or ability to complete them within the project time period, which would make the game a bit more immersive:
-- Special events, such as a seal attack, meeting other penguins, or coming across a human.
-- A data structure holding coordinates of places where the penguin has been to before, creating a "map" of the generated world to remember where they have been before.
-
-Penguin needs:
-- Hunger 100
-- Energy 100
-- HP 100
+- Program generates environments ever time the player moves--does not have a 'map' of the environment to remember where places and things are
