@@ -28,6 +28,7 @@ concrete AdventureEng of Adventure = {
         AddFeatPrepFeat d f_a prep f_b = {s = "added" ++ d.s ++ f_a.s ++ prep.s ++ f_b.s} ;
         RemFeatPrepFeat d f_a prep f_b = {s = "removed" ++ d.s ++ f_a.s ++ prep.s ++ f_b.s} ;
         FeatAlone f = {s = f.s} ;
+        SeeNothing = {s = "you don't see anything on the ground"} ;
         WhatHaveInq q v = {s = q.s ++ "do I" ++ v.s} ; -- "what do I have"
         WhatInDetInv q det feat = {s = q.s ++ "is in" ++ det.s ++ feat.s} ; -- "what is in my inventory"
         YourFeatIsA feat a = {s = "your" ++ feat.s ++ "is" ++ a.s} ; -- "your inventory is empty"
@@ -43,6 +44,7 @@ concrete AdventureEng of Adventure = {
 		-- static statements
 		ArentAny = {s = "there aren't any"} ;
 		Death = {s = "you are dead" } ;
+        Goodbye = {s = "thanks for playing"} ;
         Invalid = {s = "invalid input"} ;
 		Welcome = {s = "welcome to Antarctic Adventures" } ;
 
@@ -90,6 +92,8 @@ concrete AdventureEng of Adventure = {
         emperorpenguin_Anim = {s = "emperor penguin"} ;
         empty_A = {s = "empty"} ;
         environment_Feat = {s = "environment"} ;
+        exit_V = {s = "exit"} ;
+        exit_V2 = {s = "exit"} ;
         every_Det = {s = "every"} ;
         fat_A = {s = "fat"} ;
         find_V2 = {s = "find"} ;
@@ -157,6 +161,8 @@ concrete AdventureEng of Adventure = {
         play_V = {s = "play"} ;
         punch_V2 = {s = "punch"} ;
         putdown_V2 = {s = "put down"} ;
+        quit_V = {s = "quit"} ;
+        quit_V2 = {s = "quit"} ;
         ready_A = {s = "ready"} ;
         red_A = {s = "red"} ;
         river_Loc = {s = "river"} ;

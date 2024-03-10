@@ -28,6 +28,7 @@ abstract Adventure = {
         PronDontV2AnyFeat : Pron -> V2 -> Feat -> S ; -- "you don't have any fish"
         RemFeatPrepFeat : Det -> Feat -> Prep -> Feat -> S ;
         FeatAlone : Feat -> S ;
+        SeeNothing : S ; -- "you don't see anything on the ground"
         WhatHaveInq : Q -> V -> S ; -- "what do I have"
         WhatInDetInv : Q -> Det -> Feat -> S ; -- "what is in my inventory"
         YourFeatIsA : Feat -> A -> S ; -- "your inventory is empty"
@@ -43,6 +44,7 @@ abstract Adventure = {
 		-- static statements
 		ArentAny : S ;
 		Death : S ;
+        Goodbye : S ;
         Invalid : S ;
 		Welcome : S ;
 
@@ -93,6 +95,8 @@ abstract Adventure = {
         empty_A : A ;
         environment_Feat : Feat ;
         every_Det : Det ;
+        exit_V : V ;
+        exit_V2 : V2 ;
         fat_A : A ;
         find_V2 : V2 ;
         fire_Feat : Feat ;
@@ -159,6 +163,8 @@ abstract Adventure = {
         play_V : V ;
         punch_V2 : V2 ;
         putdown_V2 : V2 ;
+        quit_V : V ;
+        quit_V2 : V2 ;
         ready_A : A ;
         red_A : A ;
         river_Loc : Loc ;
