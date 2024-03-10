@@ -18,8 +18,8 @@ Note: If your operating system is Windows, install and use [Windows Subsystem fo
 You start with MAX_HUNGER and MAX_HP. Each turn, hunger decreases by NORMAL_HUNGER_LOSS_RATE until reaching 0. Eating food will increase the hunger by FOOD_HUNGER_GAIN_RATE. If hunger reaches 0, the HP will decrease each turn by STARVING_HP_LOSS_RATE. If HP reaches 0, the game ends.
 |Stat|Amount|Ways to decrease|Ways to increase|
 |---|---|---|---|
-|Hunger|0-MAX_HUNGER|Decreases by NORMAL_HUNGER_LOSS_RATE each turn|Increases by FOOD_HUNGER_GAIN_RATE when eating food|
-|HP|0-MAX_HP|Decreases by STARVING_HP_LOSS_RATE each turn when Hunger is at 0|Increases by FOOD_HP_GAIN_RATE when eating food|
+|Hunger|0 - MAX_HUNGER|Decreases by NORMAL_HUNGER_LOSS_RATE each turn|Increases by FOOD_HUNGER_GAIN_RATE when eating food|
+|HP|0 - MAX_HP|Decreases by STARVING_HP_LOSS_RATE each turn when Hunger is at 0|Increases by FOOD_HP_GAIN_RATE when eating food|
 
 These constant values can be modified in constant.py.
 
