@@ -11,14 +11,15 @@ concrete AdventureEng of Adventure = {
 		Pron = {s : Str } ;
         Q = {s : Str} ;
         Scen = {s : Str} ;
-        Stat = {s : Str} ;
         V = {s : Str} ;
         V2 = {s : Str} ;
         
     lin
         -- navigation
         QInq q = {s = q.s ++ "am i"} ; -- "where am I", "who am I"
-        AtLoc loc det = {s = "you are at" ++ det.s ++ loc.s} ; -- "you are at a lake"
+        ArePrepLoc pron prep det loc = {s = pron.s ++ "are" ++ prep.s ++ det.s ++ loc.s} ; -- "you are at a lake"
+        PronDontV2AnyFeat pron v2 feat = {s = pron.s ++ "don't" ++ v2.s ++ "any" ++ feat.s}; -- "you don't have any fish"
+        PronV2PrepLoc pron v2 prep loc = {s = pron.s ++ v2.s ++ prep.s ++ loc.s} ; -- "you move to location..."
         TravToLoc v loc = {s = v.s ++ "to" ++ loc.s} ; -- "[go/walk/travel/slide/swim/waddle, etc.] to [Loc]"
         VDirComm v dir = {s = v.s ++ dir.s} ; -- command e.g., "go north"
         V2DirComm v2 dir = {s = v2.s ++ dir.s} ; -- command e.g., "go north"
@@ -26,19 +27,22 @@ concrete AdventureEng of Adventure = {
         -- inventory management
         AddFeatPrepFeat d f_a prep f_b = {s = "added" ++ d.s ++ f_a.s ++ prep.s ++ f_b.s} ;
         RemFeatPrepFeat d f_a prep f_b = {s = "removed" ++ d.s ++ f_a.s ++ prep.s ++ f_b.s} ;
+        FeatAlone f = {s = f.s} ;
         WhatHaveInq q v = {s = q.s ++ "do I" ++ v.s} ; -- "what do I have"
         WhatInDetInv q det feat = {s = q.s ++ "is in" ++ det.s ++ feat.s} ; -- "what is in my inventory"
+        YourFeatIsA feat a = {s = "your" ++ feat.s ++ "is" ++ a.s} ; -- "your inventory is empty"
 
         -- general commands
         VComm v = {s = v.s} ; -- command e.g., "sleep"
 		VDetComm v det = {s = v.s ++ det.s} ; -- command e.g., "pick up all"/"pick up that"
         V2DetComm v2 det feat = {s = v2.s ++ det.s ++ feat.s} ; -- command e.g., "eat a fish", "eat fish" (missing determiner)
 		
+        -- description
+        PronV2DetFeat p v2 det feat = {s = p.s ++ v2.s ++ det.s ++ feat.s} ; -- "you see a fish" 
 
 		-- static statements
 		ArentAny = {s = "there aren't any"} ;
-		Death = {s = "you died" } ;
-        DontHave = {s = "you don't have any"} ;
+		Death = {s = "you are dead" } ;
         Invalid = {s = "invalid input"} ;
 		Welcome = {s = "welcome to Antarctic Adventures" } ;
 
@@ -50,6 +54,7 @@ concrete AdventureEng of Adventure = {
         all_Det = {s = "all"} ;
         an_Det = {s = "an"} ;
         a_n_Det = {s = "a(n)"} ;
+        at_Prep = {s = "at"} ;
         baby_A = {s = "baby"} ; -- e.g., "baby penguin"
         bad_A = {s = "bad"} ;
         big_A = {s = "big"};
@@ -83,6 +88,8 @@ concrete AdventureEng of Adventure = {
         eight_Det = {s = "eight"} ;
         elephantseal_Anim = {s = "elephant seal"} ;
         emperorpenguin_Anim = {s = "emperor penguin"} ;
+        empty_A = {s = "empty"} ;
+        environment_Feat = {s = "environment"} ;
         every_Det = {s = "every"} ;
         fat_A = {s = "fat"} ;
         find_V2 = {s = "find"} ;
@@ -97,6 +104,7 @@ concrete AdventureEng of Adventure = {
         from_Prep = {s = "from"} ;
         full_A = {s = "full"} ;
         gain_V2 = {s = "gain"} ;
+        gather_V2 = {s = "gather"} ;
         glacier_Loc = {s = "glacier"} ;
         get_V2 = {s = "get"} ;
         good_A = {s = "good"} ;
@@ -112,9 +120,9 @@ concrete AdventureEng of Adventure = {
         help_V2 = {s = "help"} ;
         hot_A = {s = "hot"} ;
         howmuch_Q = {s = "how much"} ;
-        hp_Stat = {s = "hp"} ;
+        hp_Feat = {s = "hp"} ;
         human_Anim = {s = "human"} ;
-        hunger_Stat = {s = "hunger"} ;
+        hunger_Feat = {s = "hunger"} ;
         hungry_A = {s = "hungry"} ;
         ice_Feat = {s = "ice"} ;
         iceberg_Loc = {s = "iceberg"} ;
@@ -124,9 +132,12 @@ concrete AdventureEng of Adventure = {
         leopardseal_Anim = {s = "leopard seal"} ;
         lift_V2 = {s = "lift"} ;
         live_V = {s = "live"} ;
+        location_Feat = {s = "location"} ;
+        location_Loc = {s = "location"} ;
         love_V2 = {s = "love"} ;
         male_A = {s = "male"} ;
         meet_V2 = {s = "meet"} ;
+        more_Det = {s = "more"} ;
         mountain_Loc = {s = "mountain"} ;
         move_V = {s = "move"} ;
         move_V2 = {s = "move"} ;
@@ -168,11 +179,12 @@ concrete AdventureEng of Adventure = {
         snow_Feat = {s = "snow"} ;
         snow_Scen = {s = "snow"} ;
         snowfield_Loc = {s = "snow field"} ;
-		some_Det = {s = "some" } ;
+		some_Det = {s = "some"} ;
         south_Dir = {s = "south"} ;
         stars_Scen = {s = "stars"} ;
         sunset_Scen = {s = "sunset"} ;
         swim_V = {s = "swim"} ;
+        take_V2 = {s = "take"} ;
         talk_V = {s = "talk"} ;
         ten_Det = {s = "ten"} ;
         that_Det = {s = "that"} ;
@@ -198,7 +210,8 @@ concrete AdventureEng of Adventure = {
         where_Q = {s = "where"} ;
         white_A = {s = "white"} ;
         who_Q = {s = "who"} ;
-        yellow_A = {s = "yellow"};
+        yellow_A = {s = "yellow"} ;
+        you_Pron = {s = "you"} ;
         young_A = {s = "young"} ;
         zero_Det = {s = "zero"} ;
 

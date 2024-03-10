@@ -11,23 +11,29 @@ abstract Adventure = {
 		Pron ;				-- pronoun
         Q ;                 -- question word, e.g., "where"
         Scen ;              -- scenery (that changes) e.g., "sunset", "cloud"
-        Stat ;              -- stat e.g., hunger, HP
         V ;                 -- one-place verb
         V2 ;                -- two-place verb
 
     fun
         -- navigation
         QInq : Q -> S; -- "where am I"
-        AtLoc : Loc -> Det -> S ; -- "you are at a lake"
+        ArePrepLoc : Pron -> Prep -> Det -> Loc -> S ; -- "you are at a lake"
+        PronV2PrepLoc : Pron -> V2 -> Prep -> Loc -> S ; -- "you move to location..."
         TravToLoc : V -> Loc -> S ; -- "[go/walk/travel/slide/swim/waddle, etc.] to [Loc]"
         VDirComm : V -> Dir -> S ; -- command e.g., "go north"
         V2DirComm : V2 -> Dir -> S ; -- command e.g., "go north"
         
         -- inventory/ground item management
         AddFeatPrepFeat : Det -> Feat -> Prep -> Feat -> S ;
+        PronDontV2AnyFeat : Pron -> V2 -> Feat -> S ; -- "you don't have any fish"
         RemFeatPrepFeat : Det -> Feat -> Prep -> Feat -> S ;
+        FeatAlone : Feat -> S ;
         WhatHaveInq : Q -> V -> S ; -- "what do I have"
         WhatInDetInv : Q -> Det -> Feat -> S ; -- "what is in my inventory"
+        YourFeatIsA : Feat -> A -> S ; -- "your inventory is empty"
+
+        -- description
+        PronV2DetFeat : Pron -> V2 -> Det -> Feat -> S ; -- "you see a fish"
         
         -- general commands
         VComm : V -> S ; -- command e.g., "sleep"
@@ -37,7 +43,6 @@ abstract Adventure = {
 		-- static statements
 		ArentAny : S ;
 		Death : S ;
-        DontHave : S ;
         Invalid : S ;
 		Welcome : S ;
 
@@ -51,6 +56,7 @@ abstract Adventure = {
         all_Det : Det ;
         an_Det : Det ;
         a_n_Det : Det ;
+        at_Prep : Prep ;
         baby_A : A ;                -- e.g., "baby penguin"
         bad_A : A ;
         big_A : A ;
@@ -84,6 +90,8 @@ abstract Adventure = {
         eight_Det : Det ;
         elephantseal_Anim : Anim ;
         emperorpenguin_Anim : Anim ;
+        empty_A : A ;
+        environment_Feat : Feat ;
         every_Det : Det ;
         fat_A : A ;
         find_V2 : V2 ;
@@ -98,6 +106,7 @@ abstract Adventure = {
         four_Det : Det ;
         full_A : A ;
         gain_V2 : V2 ;
+        gather_V2 : V2 ;
         glacier_Loc : Loc ;
         get_V2 : V2 ;
         good_A : A ;
@@ -113,9 +122,9 @@ abstract Adventure = {
         help_V2 : V2 ;
         hot_A : A ;
         howmuch_Q : Q ;
-        hp_Stat : Stat ;
+        hp_Feat : Feat ;
         human_Anim : Anim ;
-        hunger_Stat : Stat ;
+        hunger_Feat : Feat ;
         hungry_A : A ;
         ice_Feat : Feat ;
         iceberg_Loc : Loc ;
@@ -125,9 +134,12 @@ abstract Adventure = {
         leopardseal_Anim : Anim ;
         lift_V2 : V2 ;
         live_V : V ;
+        location_Feat : Feat ;
+        location_Loc : Loc ;
         love_V2 : V2 ;
         male_A : A ;
         meet_V2 : V2 ;
+        more_Det : Det ;
         mountain_Loc : Loc ;
         move_V : V ;
         move_V2 : V2 ;
@@ -174,6 +186,7 @@ abstract Adventure = {
         stars_Scen : Scen ;
         sunset_Scen : Scen ;
         swim_V : V ;
+        take_V2 : V2 ;
         talk_V : V ;
         ten_Det : Det ;
         that_Det : Det ;
@@ -200,6 +213,7 @@ abstract Adventure = {
         white_A : A ;
         who_Q : Q ;
         yellow_A : A ;
+        you_Pron : Pron ;
         young_A : A ;
         zero_Det : Det ;
 
