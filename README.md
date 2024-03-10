@@ -31,7 +31,7 @@ These constant values can be modified in constant.py.
 ### Navigation
 You start at location (0,0), and can command to move in the cardinal directions North, East, West, or South to explore different areas. When moving locations, the program generates a new environment with different items in it. Use this feature to catch fish to eat.
 
-## Environments
+#### Environments
 Certain items generate in each environment.
 |Environment|Possible items|
 |---|---|
@@ -50,3 +50,15 @@ Certain items generate in each environment.
 
 ## Known Issues
 - Program generates environments ever time the player moves--does not have a 'map' of the environment to remember where places and things are
+
+## Files overview
+|File|Contents|
+|---|---|
+|Adventure.gf|abstract grammar|
+|AdventureEng.gf|concrete grammar|
+|constant.py|constants|
+|event.py|functions for different user-specified commands|
+|helper.py|functions helping to carry out miscellaneous tasks|
+|main.py|main function|
+|output.py|functions for outputting text to the user and logging|
+|process.py|fuctions for parsing and processing inputted expressions|
