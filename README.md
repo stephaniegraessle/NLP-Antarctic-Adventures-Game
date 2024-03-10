@@ -1,6 +1,6 @@
 # NLP-Antarctic-Adventures-Game
 
-Antarctic Adventures is an adventure exploration game featuring the player as a penguin in Antarctica. The game was created using [Python](https://www.python.org/) and [Grammatical Framework](https://www.grammaticalframework.org/). By typing commands into the chat system, the games uses utilizing natural language processing (NLP) to parse and carry out different command sentences, such as picking up and eating fish and other items and exploring around in the game map.
+Antarctic Adventures is a text-based adventure exploration game featuring the player as a penguin in Antarctica. The game was created using [Python](https://www.python.org/) and [Grammatical Framework](https://www.grammaticalframework.org/). By typing commands into the chat system, the games uses utilizing natural language processing (NLP) to parse and carry out different command sentences, such as picking up and eating fish and other items and exploring around in the game map.
 
 ## Installation (Linux)
 
