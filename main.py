@@ -7,12 +7,10 @@ import helper
 # constants
 import constant
 
-# location events
-import lake
-
 # other assisting
 import helper
-import time
+import output
+import event
 
 def main():
     os.system("gf -make AdventureEng.gf") # generate PGF file
@@ -20,45 +18,47 @@ def main():
     lang = gr.languages["AdventureEng"] # get English languge (default)
     #process.print_grammar_info(gr) # Print info about grammar
 
-    environ = helper.gen_environ() # init starting environment
+    output.welcome(lang)
 
-    loc = [0,0] # init starting location
+    loc = (0,0) # init starting location
+    output.loc(loc,lang)
+    environ, ground = helper.gen_environ(loc,lang) # give information about and describe environment
+
+    #map = {} # init map dictionary containing all location info
+    #map.update({loc:info}) # add starting location and environment/item info to map
+
     inv = {} # init empty dictionary as inventory
+
     hunger = constant.MAX_HUNGER # init full hunger
     hp = constant.MAX_HP # init full hp
 
     quit = False
-    success = False
-    while not quit and hp > 0: # TODO: Make dialogue for if die from low HP
-        print()
+    dead = False
+    while not dead and not quit: # TODO: Make 'quit' functional
+        #print()
         try:
-            helper.print_stats(hunger,hp)
-            helper.print_inv(inv)
+            output.see(ground,lang)
+            output.status(hunger,hp,lang)
+            output.inventory(inv,lang)
 
-            # program gives information about environment
+            func,args = process.get_input(lang) # get user input as func, args
 
-            input = process.get_input(lang) # get user input as list of [func,args]
-            func = input[0]
-            args = input[1]
+            action = process.determine_action(func) # determine what the user inputted
+            #print("Action:\t",action)
 
-            # determine which type of command the user inputted
-            #type = process.get_type(args)
-
-            # determine useful information from command, e.g., verb, determiners, objects, etc.
-
-            # do appropriate followup action
-
-
-            # determiner function testing
-            #det = process.get_det(args,gr)
-            #print("Det:",det)
-            #det_amt = process.get_det_amount(det)
-            #print("Det amount:",det_amt)
+            # TODO: Put this into a separate process.py function
+            if action == 'navigation':
+                loc = process.execute_navigation(loc,args,lang,gr) # move to new loc
+                environ, ground = helper.gen_environ(loc,lang) # generate new environment
+            elif action == 'command':
+                ground,inv,hunger,hp,quit = process.execute_command(environ,ground,inv,hunger,hp,args,lang,gr)
 
             hunger = helper.lose_hunger(hunger,constant.NORMAL_HUNGER_LOSS_RATE) # lose hunger per turn
+            #TODO: Make it such that not lose hunger if eating that turn
             hp = helper.check_if_starving(hunger,hp) # lose HP if hunger too low
+            dead = helper.check_if_dead(hp,lang)
         except:
+            output.log("main.py main()","function failed")
             #os.system("rm Adventure.pgf") # remove generated PGF file
-            exit()
-
+            event.quit(lang)
 main()
