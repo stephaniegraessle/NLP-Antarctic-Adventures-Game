@@ -167,5 +167,10 @@ cython_debug/
 *.tmp
 *.pgf
 
+# exclude updated grammar testing files
+AdventureNew.gf
+AdventureNewEng.gf
+AdventureNewOper.gf
+
 # log files
 *.log
