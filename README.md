@@ -18,16 +18,25 @@ Note: If your operating system is Windows, install and use [Windows Subsystem fo
 You start with MAX_HUNGER and MAX_HP. Each turn, hunger decreases by NORMAL_HUNGER_LOSS_RATE until reaching 0. Eating food will increase the hunger by FOOD_HUNGER_GAIN_RATE. If hunger reaches 0, the HP will decrease each turn by STARVING_HP_LOSS_RATE. If HP reaches 0, the game ends.
 |Stat|Amount|Ways to decrease|Ways to increase|
 |---|---|---|---|
-|Hunger|0-MAX_HUNGER|-NORMAL_HUNGER_LOSS_RATE each turn|+FOOD_HUNGER_GAIN_RATE when eating food|
-|HP|0-MAX_HP|-STARVING_HP_LOSS_RATE each turn when Hunger is at 0|+FOOD_HP_GAIN_RATE when eating food|
+|Hunger|0-MAX_HUNGER|Decreases by NORMAL_HUNGER_LOSS_RATE each turn|Increases by FOOD_HUNGER_GAIN_RATE when eating food|
+|HP|0-MAX_HP|Decreases by STARVING_HP_LOSS_RATE each turn when Hunger is at 0|Increases by FOOD_HP_GAIN_RATE when eating food|
 
 These constant values can be modified in constant.py.
 
 #### Foods
-Currently, the only food in the game is fish, which you can find in the ocean environment.
+|Food|Environment|
+|---|---|
+|Fish|Ocean|
 
 ### Navigation
 You start at location (0,0), and can command to move in the cardinal directions North, East, West, or South to explore different areas. When moving locations, the program generates a new environment with different items in it. Use this feature to catch fish to eat.
+
+## Environments
+Certain items generate in each environment.
+|Environment|Possible items|
+|---|---|
+|Ocean|Fish|
+|Snow field|Ice, Rock, Snow|
 
 ## Change log
 ### 10 March, 2024
