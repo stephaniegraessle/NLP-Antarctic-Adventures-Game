@@ -50,3 +50,7 @@ Certain items generate in each environment.
 
 ## Known Issues
 - Program generates environments ever time the player moves--does not have a 'map' of the environment to remember where places and things are
+- Game crashes when trying to pick up more object than there are on the ground--tell player also how many of an object they see on the ground.
+- Add statements for hunger and health instead of numbers, show every few turns, not every turn.
+- Show inventory only when player asks
+- No statement for when trying to catch fish outside of ocean area/in a place where there is no fish
