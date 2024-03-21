@@ -8,10 +8,10 @@ Antarctic Adventures is a text-based adventure exploration game featuring the pl
  - [Change log](#change-log)
  - [Installation](#installation)
  - [User guide](#user-guide)
-   - [Player needs](#player-needs)
-     - [Foods](#foods)
    - [Navigation](#navigation)
      - [Environments](#environments)
+   - [Player needs](#player-needs)
+     - [Foods](#foods)
 
 <a id="files-overview"></a>
 ## Files overview
@@ -58,22 +58,6 @@ Note: These commands only run on Linux. If your operating system is Windows, you
 <a id="user-guide"></a>
 ## User guide
 
-<a id="player-needs"></a>
-### Player needs
-You start with MAX_HUNGER and MAX_HP. Each turn, hunger decreases by NORMAL_HUNGER_LOSS_RATE until reaching 0. Eating food will increase the hunger by FOOD_HUNGER_GAIN_RATE. If hunger reaches 0, the HP will decrease each turn by STARVING_HP_LOSS_RATE. If HP reaches 0, the game ends.
-|Stat|Amount|Ways to decrease|Ways to increase|
-|---|---|---|---|
-|Hunger|0 - MAX_HUNGER|Decreases by NORMAL_HUNGER_LOSS_RATE each turn|Increases by FOOD_HUNGER_GAIN_RATE when eating food|
-|HP|0 - MAX_HP|Decreases by STARVING_HP_LOSS_RATE each turn when Hunger is at 0|Increases by FOOD_HP_GAIN_RATE when eating food|
-
-These constant values can be modified in constant.py.
-
-<a id="foods"></a>
-#### Foods
-|Food|Environment|
-|---|---|
-|Fish|Ocean|
-
 <a id="navigation"></a>
 ### Navigation
 You start at location (0,0), and can command to move in the cardinal directions North, East, West, or South to explore different areas. When moving locations, the program generates a new environment with different items in it. Use this feature to catch fish to eat.
@@ -85,3 +69,19 @@ Certain items generate in each environment.
 |---|---|
 |Ocean|Fish|
 |Snow field|Ice, Rock, Snow|
+
+<a id="player-needs"></a>
+### Player needs
+You start with MAX_HUNGER and MAX_HP. Each turn, hunger decreases by NORMAL_HUNGER_LOSS_RATE until reaching 0. Eating food will increase the hunger by FOOD_HUNGER_GAIN_RATE. If hunger reaches 0, the HP will decrease each turn by STARVING_HP_LOSS_RATE. If HP reaches 0, the game ends.
+|Stat|Amount|Ways to decrease|Ways to increase|
+|---|---|---|---|
+|Hunger|0 - MAX_HUNGER|Decreases by NORMAL_HUNGER_LOSS_RATE each turn|Increases by FOOD_HUNGER_GAIN_RATE when eating food|
+|HP|0 - MAX_HP|Decreases by STARVING_HP_LOSS_RATE each turn when Hunger is at 0|Increases by FOOD_HP_GAIN_RATE when eating food|
+
+\* You can modify these constant values in constant.py.
+
+<a id="foods"></a>
+#### Foods
+|Food|Environment|
+|---|---|
+|Fish|Ocean|
